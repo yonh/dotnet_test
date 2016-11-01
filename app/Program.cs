@@ -45,7 +45,7 @@ namespace Demo
             pp.Add("notifyUrl", "http://demo.niaoyun.com/notify.php");//异步返回地址
             pp.Add("guid","1234"); //服务器唯一标识
             
-            var client = new HttpClient();
+            HttpClient client = new HttpClient();
             HttpResponseMessage resp = client.PostAsync(uri, pp.Parameters).Result;
             if (resp.StatusCode == HttpStatusCode.OK) {
                 string json = resp.Content.ReadAsStringAsync().Result.ToString();
